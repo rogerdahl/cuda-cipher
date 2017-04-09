@@ -1,0 +1,118 @@
+#Nothing 	: 	do nothing 	: 	p@ssW0rd 	p@ssW0rd 	
+:
+
+#Lowercase 	l 	Lowercase all letters 	l 	p@ssW0rd 	p@ssw0rd
+l
+
+#Uppercase 	u 	Uppercase all letters 	u 	p@ssW0rd 	P@SSW0RD
+u
+
+#Capitalize 	c 	Capitalize the first letter 	c 	p@ssW0rd 	P@ssW0rd
+c
+
+#Invert Capitalize 	C 	Lowercase first found character, uppercase the rest 	C 	p@ssW0rd 	p@SSW0RD
+C
+
+#Toggle Case 	t 	Toggle the case of all characters in word. 	t 	p@ssW0rd 	P@SSw0RD
+t
+
+#Toggle @ 	TN 	Toggle the case of characters at position N 	T3 	p@ssW0rd 	p@sSW0rd
+T3
+
+#Reverse 	r 	Reverse the entire word 	r 	p@ssW0rd 	dr0Wss@p
+r
+
+#Duplicate 	d 	Duplicate entire word 	d 	p@ssW0rd 	p@ssW0rdp@ssW0rd
+d
+
+#Reflect 	f 	Duplicate word reversed 	f 	p@ssW0rd 	p@ssW0rddr0Wss@p
+f
+
+#Rotate Left 	{ 	Rotates the word left. 	{ 	p@ssW0rd 	@ssW0rdp
+{
+
+#Rotate Right 	} 	Rotates the word right 	} 	p@ssW0rd 	dp@ssW0r
+}
+
+#Append Character 	$ 	Append character to end 	$1 	p@ssW0rd 	p@ssW0rd1
+$5
+
+#Prepend Character 	^ 	Prepend character to front 	^1 	p@ssW0rd 	1p@ssW0rd
+^1
+
+#Truncate left 	[ 	Deletes first character 	[ 	p@ssW0rd 	@ssW0rd
+[
+
+#Trucate right 	] 	Deletes last character 	] 	p@ssW0rd 	p@assW0r
+]
+
+#Delete @ N 	DN 	Deletes character at position N 	D3 	p@ssW0rd 	p@sW0rd 	*
+D3
+
+#Delete range 	xNM 	Deletes M characters, starting at position N 	x02 	p@ssW0rd 	ssW0rd 	*
+x02
+
+#Insert @ N 	iNX 	Inserts character X at position N 	i4! 	p@ssW0rd 	p@ss!W0rd 	*
+i4!
+
+#Overwrite @ N 	oNX 	Overwrites character at postion N with X 	o3$ 	p@ssW0rd 	p@s$W0rd 	*
+o3$
+
+#Truncate @ N 	'N 	Truncate word at position N 	'6 	p@ssW0rd 	p@ssW0
+'6
+
+#Replace 	sXY 	Replace all instances of X with Y 	ss$ 	p@ssW0rd 	p@$$W0rd
+ss$
+
+#Purge 	@X 	Purge all instances of X 	@s 	p@ssW0rd 	p@W0rd 	+
+@s
+
+#Duplicate first N 	z 	Duplicates first character N times 	z2 	p@ssW0rd 	ppp@ssW0rd
+z2
+
+#Duplicate last N 	Z 	Duplicates last character N times 	Z2 	p@ssW0rd 	p@ssW0rddd
+Z2
+
+#Duplicate all 	q 	Duplicate every character 	q 	p@ssW0rd 	pp@@ssssWW00rrdd
+q
+
+#Duplicate word 	pN 	Duplicate entire word N times 	p3 	Pass 	PassPassPass
+p3
+
+#Swap front 	k 	Swaps first two characters 	k 	p@ssW0rd 	@pssW0rd
+k
+
+#Swap back 	K 	Swaps last two characters 	K 	p@ssW0rd 	p@ssW0dr
+K
+
+#Swap @ N 	*XY 	Swaps character X with Y 	*34 	p@ssW0rd 	p@sWs0rd 	*
+*34
+
+#Bitwise shift left 	LN 	Bitwise shift left character @ N 	L2 	p@ssW0rd 	p@æsW0rd 	*
+L2
+
+#Bitwise shift right 	RN 	Bitwise shift right character @ N 	R2 	p@ssW0rd 	p@9sW0rd 	*
+R2
+
+#Ascii increment 	+N 	Increment character @ N by 1 ascii value 	+2 	p@ssW0rd 	p@tsW0rd 	*
++2
+
+#Ascii decrement 	-N 	Decrement character @ N by 1 ascii value 	-2 	p@ssW0rd 	p?ssW0rd 	*
+-2
+
+#Replace N + 1 	.N 	Replaces character @ N with value at @ N plus 1 	.1 	p@ssW0rd 	psssW0rd 	*
+.1
+
+#Replace N - 1 	,N 	Replaces character @ N with value at @ N minus 1 	,1 	p@ssW0rd 	ppssW0rd 	*
+,1
+
+#Duplicate block front 	yN 	Duplicates first N characters 	y2 	p@ssW0rd 	p@p@ssW0rd 	*
+y2
+
+#Duplicate block back 	YN 	Duplicates last N characters 	Y2 	p@ssW0rd 	p@ssW0rdrd 	*
+Y2
+
+#Title 	E 	Upper case the first letter and every letter after a space 	E 	p@ssW0rd w0rld 	P@ssw0rd W0rld
+E
+
+# * Indicates that N starts at 0. For character positions other than 0-9 use A-Z (A=11)
