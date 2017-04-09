@@ -3,25 +3,6 @@
 OpenOffice provides strong encryption for documents. This program uses CUDA capable GPUs to attempt to unlock the documents by trying a large number of generated passwords.
 
 
-## Implementation
-
-OpenOffice uses PBKDF2-HMAC-SHA1 to convert a user-supplied password to a key that is used for Blowfish decryption.
-
-The functions have been optimized for what's needed to check for a matching password in OpenOffice's encryption.
-
-* `password`: The user supplied password. 1 - 60 bytes.
-* `salt`:
-    * The salt makes it impossible to use a table of precomputed keys for known passwords.
-    * 1 - 60 bytes. Must be 64 bytes, zero padded.
-* `salt_len`: The size of the salt, minus the zero padding. Must be 1 - 60.
-* `key_len`: The size of the key to generate.
-* OpenOffice runs HMAC-SHA1 only on SHA1 hashes.
-* Password check:
-    * The SHA1 hash of the password is calculated.
-    * The SHA1 hash is run through 1024 rounds of HMAC-SHA1.
-    * Each round both takes and returns an SHA1 hash.
-
-
 ## OpenOffice encryption scheme
 
 OpenOffice uses PBKDF2-HMAC-SHA1 to convert a user-supplied password to a key that is used for Blowfish decryption:
@@ -33,6 +14,29 @@ OpenOffice uses PBKDF2-HMAC-SHA1 to convert a user-supplied password to a key th
     * Use PRNG to generate random initialization vector (8 bytes) and salt (16 bytes)
     * Use 1024 rounds of PBKDF2-HMAC-SHA1 to generate a 128-bit encryption key from the init vector and salt
     * Use Blowfish CFB (cipher feedback) with the encryption key to encrypt the file
+
+
+## Implementation
+
+Implements a CUDA kernel that performs PBKDF2-HMAC-SHA1 and Blowfish CFB.
+
+Input:
+
+* `password`: The user supplied password. 1 - 60 bytes
+* `salt`:
+    * The salt makes it impossible to use a table of precomputed keys for known passwords
+    * 1 - 60 bytes. Must be 64 bytes, zero padded
+* `salt_len`: The size of the salt, minus the zero padding. Must be 1 - 60
+* `key_len`: The size of the key to generate
+
+Operation:
+
+* OpenOffice runs HMAC-SHA1 only on SHA1 hashes
+* Password check:
+    * The SHA1 hash of the password is calculated
+    * The SHA1 hash is run through 1024 rounds of HMAC-SHA1
+    * Each round both takes and returns an SHA1 hash
+
 
 ## Optimization
 
