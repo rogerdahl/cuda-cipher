@@ -65,3 +65,4 @@ end function
 ## To do
 
 Try: Split the kernel into two, one for PBKDF2 and one for Blowfish. I'm wondering if, when the same kernel does two completely different tasks, the two parts may interfere with caching for each other. Also, I don't think the compiler understands that PBKDF2 runs 1024 times while Blowfish runs only one time. So it might spill registers in PBKDF2 in order to make Blowfish run faster. Surprisingly, Blowfish currently takes almost the same amount of time as 1024 rounds of PBKDF2.
+
